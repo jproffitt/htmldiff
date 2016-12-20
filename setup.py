@@ -13,6 +13,7 @@ setup(
     py_modules=['htmldiff'],
     description='Diffs arbitrary HTML inline.',
     zip_safe=False,
+    install_requires=['html5lib', 'genshi'],	
     classifiers=[
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python'
