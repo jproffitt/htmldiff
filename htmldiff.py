@@ -20,14 +20,17 @@
     :copyright: (c) 2011 by Armin Ronacher, see AUTHORS for more details.
     :license: BSD, see LICENSE for more details.
 """
+
 from __future__ import with_statement
 
 import re
 from difflib import SequenceMatcher
 from itertools import chain
+from contextlib import contextmanager
+
 from genshi.core import Stream, QName, Attrs, START, END, TEXT
 from genshi.input import ET
-from contextlib import contextmanager
+
 import html5lib
 
 
@@ -67,7 +70,7 @@ def longzip(a, b):
     biter = iter(b)
     try:
         for item1 in aiter:
-            yield item1, biter.next()
+            yield item1, next(biter)
     except StopIteration:
         for item1 in aiter:
             yield item1, None
