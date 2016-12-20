@@ -114,7 +114,7 @@ so the tags the `StreamDiffer` adds are also unnamespaced.
 
     def text_split(self, text):
         worditer = chain([u''], _diff_split_re.split(text))
-        return [x + worditer.next() for x in worditer]
+        return [x + next(worditer) for x in worditer]
 
     def cut_leading_space(self, s):
         match = _leading_space_re.match(s)
